@@ -2,7 +2,7 @@ import { useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
-export default function GstCalculator() {
+ function GstCalculator() {
   const [amount, setAmount] = useState("");
   const [rate, setRate] = useState("18");
   const [includeGst, setIncludeGst] = useState(false);
@@ -22,7 +22,7 @@ export default function GstCalculator() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white shadow rounded">
+    <div className="max-w-md mx-auto p-4 bg-white shadow rounded text-black dark:bg-gray-800 dark:text-white">
       <h2 className="text-2xl font-bold mb-4">GST Calculator</h2>
 
       <input
@@ -30,13 +30,13 @@ export default function GstCalculator() {
         placeholder="Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
-        className="border p-2 w-full mb-2"
+        className="border p-2 w-full mb-2  text-black dark:bg-gray-800 dark:text-white"
       />
 
       <select
         value={rate}
         onChange={(e) => setRate(e.target.value)}
-        className="border p-2 w-full mb-2"
+        className="border p-2 w-full mb-2  text-black dark:bg-gray-800 dark:text-white"
       >
         <option value="5">5%</option>
         <option value="12">12%</option>
@@ -44,7 +44,7 @@ export default function GstCalculator() {
         <option value="28">28%</option>
       </select>
 
-      <label className="block mb-2">
+      <label className="block mb-2  text-black dark:bg-gray-800 dark:text-white">
         <input
           type="checkbox"
           checked={includeGst}
@@ -54,7 +54,7 @@ export default function GstCalculator() {
         Amount includes GST
       </label>
 
-      <div id="gst-result" className="bg-gray-100 p-4 rounded mt-4">
+      <div id="gst-result" className="bg-gray-100 p-4 rounded mt-4  text-black dark:bg-gray-800 dark:text-white">
         <p>Base Amount: ₹{Number(base).toFixed(2)}</p>
         <p>GST: ₹{gst.toFixed(2)}</p>
         <p className="font-bold">Total: ₹{Number(total).toFixed(2)}</p>
@@ -69,3 +69,5 @@ export default function GstCalculator() {
     </div>
   );
 }
+
+export default GstCalculator
