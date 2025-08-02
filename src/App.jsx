@@ -1,18 +1,45 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Home from "./pages/Home";
+import Header from "./components/Header";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <Header />
+        <Home />
+      </>
+    ),
+  },
+
+  {
+    path: "/About",
+    element: (
+      <>
+        <Header />
+        <About />
+      </>
+    ),
+  },
+
+  {
+    path: "/privacy",
+    element: (
+      <>
+        <Header />
+        <PrivacyPolicy />
+      </>
+    ),
+  },
+]);
 export default function App() {
+
   return (
     <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
-    
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        </Routes>
-      </BrowserRouter>
+    <RouterProvider router={router} />
     </div>
   );
 }

@@ -7,11 +7,17 @@ import html2canvas from "html2canvas";
   const [rate, setRate] = useState("");
   const [months, setMonths] = useState("");
 
-  const monthlyRate = rate / 12 / 100;
-  const emi = principal && rate && months
-    ? (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
-      (Math.pow(1 + monthlyRate, months) - 1)
-    : 0;
+  let emi = 0;
+
+  if(principal && rate && months) {
+    const monthlyRate = rate / 12 / 100;
+
+    if(monthlyRate === 0) {
+      emi = principal / months
+    } else {
+      emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+    }
+  }
 
  const downloadPDF = () => {
     const input = document.getElementById("emi-calculator");
@@ -52,7 +58,7 @@ import html2canvas from "html2canvas";
       />
 
       <div className="bg-gray-100 p-4 rounded mt-4  text-black dark:bg-gray-800 dark:text-white">
-        <p className="font-bold">Monthly EMI: ₹{emi.toFixed(2)}</p>
+        <p className="font-bold">Monthly EMI: ₹{Number(emi).toFixed(2)}</p>
       </div>
 
       <button
