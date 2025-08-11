@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="p-6 max-w-3xl mx-auto text-gray-800 dark:text-gray-200">
+    <div className="min-h-screen p-6 max-w-3xl mx-auto text-gray-800 dark:text-gray-200">
       <h1 className="text-2xl font-bold mb-4">About This Website</h1>
       <p>
         This website helps users calculate <strong>GST</strong> and <strong>EMI</strong> quickly and easily.
