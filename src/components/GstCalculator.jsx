@@ -2,7 +2,7 @@ import { useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
- function GstCalculator() {
+function GstCalculator() {
   const [amount, setAmount] = useState("");
   const [rate, setRate] = useState("18");
   const [includeGst, setIncludeGst] = useState(false);
@@ -30,7 +30,7 @@ import html2canvas from "html2canvas";
         placeholder="Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
-        className="border p-2 w-full mb-2  text-black dark:bg-gray-800 dark:text-white"
+        className="placeholder-gray-800 dark:placeholder-white border p-2 w-full mb-2  text-black dark:bg-gray-800 dark:text-white"
       />
 
       <select
@@ -54,7 +54,10 @@ import html2canvas from "html2canvas";
         Amount includes GST
       </label>
 
-      <div id="gst-result" className="bg-gray-100 p-4 rounded mt-4  text-black dark:bg-gray-800 dark:text-white">
+      <div
+        id="gst-result"
+        className="bg-gray-100 p-4 rounded mt-4  text-black dark:bg-gray-800 dark:text-white"
+      >
         <p>Base Amount: ₹{Number(base).toFixed(2)}</p>
         <p>GST: ₹{gst.toFixed(2)}</p>
         <p className="font-bold">Total: ₹{Number(total).toFixed(2)}</p>
@@ -70,4 +73,4 @@ import html2canvas from "html2canvas";
   );
 }
 
-export default GstCalculator
+export default GstCalculator;

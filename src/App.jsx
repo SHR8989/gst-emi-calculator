@@ -3,6 +3,8 @@ import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +13,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <Home />
+        <Footer />
       </>
     ),
   },
@@ -21,6 +24,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <About />
+        <Footer />
       </>
     ),
   },
@@ -31,6 +35,17 @@ const router = createBrowserRouter([
       <>
         <Header />
         <PrivacyPolicy />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/contact",
+    element: (
+      <>
+        <Header />
+        <Contact />
+        <Footer />
       </>
     ),
   },
@@ -38,7 +53,7 @@ const router = createBrowserRouter([
 export default function App() {
 
   return (
-    <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
+    <div className="bg-white overflow-x-hidden min-h-screen text-black dark:bg-gray-900 dark:text-white">
     <RouterProvider router={router} />
     </div>
   );
