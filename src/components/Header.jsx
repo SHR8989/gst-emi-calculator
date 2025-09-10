@@ -51,6 +51,13 @@ const Header = () => {
                 >
                   Invoice Generator
                 </a>
+                <a
+                  href="https://character-counter-shr.vercel.app"
+                  target="_blank"
+                  className="text-sm block hover:text-gray-400"
+                >
+                  Typing Counter
+                </a>
               </div>
             </div>
             <DarkModeToggle />
@@ -142,6 +149,13 @@ const Header = () => {
                   className="block text-sm hover:text-gray-400"
                 >
                   Invoice Generator
+                </a>
+                <a
+                  href="https://character-counter-shr.vercel.app"
+                  target="_blank"
+                  className="block text-sm hover:text-gray-400"
+                >
+                  Typing Counter
                 </a>
               </div>
             )}

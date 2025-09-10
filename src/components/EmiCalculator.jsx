@@ -33,12 +33,12 @@ function EmiCalculator() {
 
   return (
     <div
-      id="emi-calculator"
+      
       className="max-w-md mx-auto p-4 bg-white shadow rounded  text-black dark:bg-gray-800 dark:text-white"
     >
       <h2 className="text-2xl font-bold mb-4">EMI Calculator</h2>
 
-      <input
+     <input
         type="number"
         placeholder="Loan Amount (₹)"
         value={principal}
@@ -62,9 +62,12 @@ function EmiCalculator() {
         className="border p-2 w-full mb-2 placeholder-gray-800 dark:placeholder-white text-black dark:bg-gray-800 dark:text-white"
       />
 
-      <div className="bg-gray-100 p-4 rounded mt-4  text-black dark:bg-gray-800 dark:text-white">
+      <div id= "emi-calculator"className="bg-gray-100 p-4 rounded mt-4  text-black dark:bg-gray-800 dark:text-white">
+        <p>Base Amount: ₹{Number(principal).toFixed(2)}</p>
+        <p>Interest: {Number(rate).toFixed(2)}%</p>
         <p className="font-bold">Monthly EMI: ₹{Number(emi).toFixed(2)}</p>
       </div>
+    
 
       <button
         onClick={downloadPDF}
